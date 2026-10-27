@@ -1,0 +1,453 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="MauiApp1.MainPage"
+    Title="Sistema de Calificaciones"
+    BackgroundColor="#081426">
+
+    <Grid ColumnDefinitions="200,*">
+
+        <!-- MENU LATERAL -->
+        <Grid Grid.Column="0"
+              BackgroundColor="#0D2039"
+              Padding="15,25"
+              RowDefinitions="Auto,*,Auto">
+
+            <VerticalStackLayout Spacing="12">
+
+                <Border BackgroundColor="#1B365B"
+                        Stroke="#E8BE64"
+                        Padding="15"
+                        HorizontalOptions="Center"
+                        StrokeShape="RoundRectangle 18">
+                    <Label Text="IS"
+                           FontSize="30"
+                           FontAttributes="Bold"
+                           TextColor="#E8BE64"/>
+                </Border>
+
+                <Label Text="INSTITUTO"
+                       TextColor="White"
+                       FontSize="15"
+                       FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="SUDAMERICANO"
+                       TextColor="#E8BE64"
+                       FontSize="12"
+                       HorizontalTextAlignment="Center"/>
+
+                <BoxView HeightRequest="1"
+                         Color="#314866"
+                         Margin="0,20"/>
+
+                <Border BackgroundColor="#215BC5"
+                        StrokeThickness="0"
+                        Padding="13"
+                        StrokeShape="RoundRectangle 12">
+                    <Label Text="⌂  Inicio"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                </Border>
+
+                <Label Text="▤  Calificaciones"
+                       TextColor="#B8CAE4"
+                       Padding="12"/>
+
+                <Label Text="♙  Estudiantes"
+                       TextColor="#B8CAE4"
+                       Padding="12"/>
+
+                <Label Text="◷  Historial"
+                       TextColor="#B8CAE4"
+                       Padding="12"/>
+
+                <BoxView HeightRequest="1"
+                         Color="#314866"
+                         Margin="0,12"/>
+
+                <Label Text="CRITERIOS"
+                       TextColor="#8FA8C9"
+                       FontSize="11"
+                       FontAttributes="Bold"/>
+
+                <Label Text="●  Aprobado: 7 - 10"
+                       TextColor="#67DDA5"
+                       FontSize="12"/>
+
+                <Label Text="●  Reprueba: menos de 7"
+                       TextColor="#FF8793"
+                       FontSize="12"/>
+
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="2">
+                <Label Text="PORTAL ACADÉMICO"
+                       TextColor="#E8BE64"
+                       FontSize="11"
+                       HorizontalTextAlignment="Center"/>
+
+                <Label Text="Sistema de evaluación"
+                       TextColor="#8FA8C9"
+                       FontSize="10"
+                       HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- CONTENIDO -->
+        <ScrollView Grid.Column="1"
+                    x:Name="ScrollPrincipal">
+
+            <VerticalStackLayout Padding="24"
+                                 Spacing="20">
+
+                <!-- TITULO -->
+                <VerticalStackLayout Spacing="5">
+                    <Label Text="PORTAL ACADÉMICO"
+                           TextColor="#74A8FF"
+                           FontSize="11"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="Sistema de Calificaciones"
+                           TextColor="White"
+                           FontSize="29"
+                           FontAttributes="Bold"/>
+
+                    <Label Text="Control y seguimiento del rendimiento estudiantil"
+                           TextColor="#9DB2D1"
+                           FontSize="13"/>
+                </VerticalStackLayout>
+
+                <!-- DATOS GENERALES -->
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="14">
+
+                    <Border BackgroundColor="#112641"
+                            Stroke="#294B73"
+                            Padding="16"
+                            StrokeShape="RoundRectangle 15">
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="ESTUDIANTE"
+                                   TextColor="#9EBCEB"
+                                   FontAttributes="Bold"
+                                   FontSize="12"/>
+
+                            <Picker x:Name="EstudiantePicker"
+                                    Title="Seleccionar estudiante"
+                                    TextColor="White"
+                                    TitleColor="#B0C2DD"
+                                    BackgroundColor="#1B3453">
+                                <Picker.Items>
+                                    <x:String>Joan</x:String>
+                                    <x:String>Juan</x:String>
+                                    <x:String>Alfonso</x:String>
+                                    <x:String>Jostin</x:String>
+                                    <x:String>Piola</x:String>
+                                </Picker.Items>
+                            </Picker>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            BackgroundColor="#112641"
+                            Stroke="#294B73"
+                            Padding="16"
+                            StrokeShape="RoundRectangle 15">
+
+                        <VerticalStackLayout Spacing="10">
+                            <Label Text="FECHA DE EVALUACIÓN"
+                                   TextColor="#9EBCEB"
+                                   FontAttributes="Bold"
+                                   FontSize="12"/>
+
+                            <DatePicker x:Name="FechaEvaluacion"
+                                        Format="dd/MM/yyyy"
+                                        TextColor="White"
+                                        BackgroundColor="#1B3453"/>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <!-- PARCIALES -->
+                <Grid ColumnDefinitions="*,*"
+                      ColumnSpacing="14">
+
+                    <!-- PARCIAL 1 -->
+                    <Border BackgroundColor="#102541"
+                            Stroke="#2974D9"
+                            Padding="18"
+                            StrokeShape="RoundRectangle 18">
+
+                        <VerticalStackLayout Spacing="14">
+
+                            <Label Text="01  PRIMER PARCIAL"
+                                   TextColor="#8DBBFF"
+                                   FontSize="19"
+                                   FontAttributes="Bold"/>
+
+                            <Label Text="Seguimiento 1 (30%)"
+                                   TextColor="White"
+                                   FontSize="13"/>
+
+                            <Entry x:Name="Seguimiento1Entry"
+                                   Placeholder="Nota de 0 a 10"
+                                   PlaceholderColor="#9BB0CC"
+                                   Keyboard="Numeric"
+                                   TextColor="White"
+                                   BackgroundColor="#1B3657"/>
+
+                            <Label Text="Examen 1 (20%)"
+                                   TextColor="White"
+                                   FontSize="13"/>
+
+                            <Entry x:Name="Examen1Entry"
+                                   Placeholder="Nota de 0 a 10"
+                                   PlaceholderColor="#9BB0CC"
+                                   Keyboard="Numeric"
+                                   TextColor="White"
+                                   BackgroundColor="#1B3657"/>
+
+                            <Border BackgroundColor="#1C426F"
+                                    StrokeThickness="0"
+                                    Padding="14"
+                                    StrokeShape="RoundRectangle 12">
+
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Subtotal"
+                                           TextColor="#C7DDF9"/>
+
+                                    <Label x:Name="Parcial1Label"
+                                           Grid.Column="1"
+                                           Text="0.00 / 5.00"
+                                           TextColor="White"
+                                           FontAttributes="Bold"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <!-- PARCIAL 2 -->
+                    <Border Grid.Column="1"
+                            BackgroundColor="#1B1D42"
+                            Stroke="#8B59DD"
+                            Padding="18"
+                            StrokeShape="RoundRectangle 18">
+
+                        <VerticalStackLayout Spacing="14">
+
+                            <Label Text="02  SEGUNDO PARCIAL"
+                                   TextColor="#C2A3FF"
+                                   FontSize="19"
+                                   FontAttributes="Bold"/>
+
+                            <Label Text="Seguimiento 2 (30%)"
+                                   TextColor="White"
+                                   FontSize="13"/>
+
+                            <Entry x:Name="Seguimiento2Entry"
+                                   Placeholder="Nota de 0 a 10"
+                                   PlaceholderColor="#B4A6CC"
+                                   Keyboard="Numeric"
+                                   TextColor="White"
+                                   BackgroundColor="#302B56"/>
+
+                            <Label Text="Examen 2 (20%)"
+                                   TextColor="White"
+                                   FontSize="13"/>
+
+                            <Entry x:Name="Examen2Entry"
+                                   Placeholder="Nota de 0 a 10"
+                                   PlaceholderColor="#B4A6CC"
+                                   Keyboard="Numeric"
+                                   TextColor="White"
+                                   BackgroundColor="#302B56"/>
+
+                            <Border BackgroundColor="#42326F"
+                                    StrokeThickness="0"
+                                    Padding="14"
+                                    StrokeShape="RoundRectangle 12">
+
+                                <Grid ColumnDefinitions="*,Auto">
+                                    <Label Text="Subtotal"
+                                           TextColor="#E1D1FF"/>
+
+                                    <Label x:Name="Parcial2Label"
+                                           Grid.Column="1"
+                                           Text="0.00 / 5.00"
+                                           TextColor="White"
+                                           FontAttributes="Bold"/>
+                                </Grid>
+                            </Border>
+                        </VerticalStackLayout>
+                    </Border>
+                </Grid>
+
+                <!-- BOTONES -->
+                <Grid ColumnDefinitions="2*,*,*"
+                      ColumnSpacing="12">
+
+                    <Button Text="CALCULAR"
+                            Clicked="Calcular_Clicked"
+                            BackgroundColor="#2367D5"
+                            TextColor="White"
+                            FontAttributes="Bold"
+                            CornerRadius="12"
+                            HeightRequest="50"/>
+
+                    <Button Grid.Column="1"
+                            Text="REPORTE"
+                            Clicked="Reporte_Clicked"
+                            BackgroundColor="#7048C7"
+                            TextColor="White"
+                            CornerRadius="12"
+                            HeightRequest="50"/>
+
+                    <Button Grid.Column="2"
+                            Text="LIMPIAR"
+                            Clicked="Limpiar_Clicked"
+                            BackgroundColor="#304766"
+                            TextColor="White"
+                            CornerRadius="12"
+                            HeightRequest="50"/>
+                </Grid>
+
+                <!-- RESULTADO -->
+                <Border x:Name="PanelResultados"
+                        BackgroundColor="#112641"
+                        Stroke="#31537B"
+                        Padding="20"
+                        StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label Text="Resumen de Calificaciones"
+                               TextColor="White"
+                               FontSize="20"
+                               FontAttributes="Bold"/>
+
+                        <Grid ColumnDefinitions="*,*"
+                              ColumnSpacing="15">
+
+                            <Border BackgroundColor="#1B3657"
+                                    StrokeThickness="0"
+                                    Padding="18"
+                                    StrokeShape="RoundRectangle 14">
+
+                                <VerticalStackLayout Spacing="12">
+
+                                    <Label Text="NOTA FINAL"
+                                           TextColor="#A9C7F1"
+                                           FontAttributes="Bold"/>
+
+                                    <Label x:Name="NotaFinalLabel"
+                                           Text="0.00 / 10.00"
+                                           TextColor="White"
+                                           FontSize="30"
+                                           FontAttributes="Bold"/>
+
+                                    <ProgressBar x:Name="ProgresoNota"
+                                                 Progress="0"
+                                                 ProgressColor="#63ABFF"
+                                                 BackgroundColor="#355575"/>
+
+                                    <Label x:Name="PorcentajeLabel"
+                                           Text="0% de rendimiento"
+                                           TextColor="#B8CAE4"/>
+                                </VerticalStackLayout>
+                            </Border>
+
+                            <Border x:Name="EstadoBorder"
+                                    Grid.Column="1"
+                                    BackgroundColor="#293C55"
+                                    StrokeThickness="0"
+                                    Padding="18"
+                                    StrokeShape="RoundRectangle 14">
+
+                                <VerticalStackLayout Spacing="12">
+
+                                    <Label Text="ESTADO ACADÉMICO"
+                                           TextColor="#B8CAE4"
+                                           FontAttributes="Bold"/>
+
+                                    <Label x:Name="EstadoLabel"
+                                           Text="SIN CALCULAR"
+                                           TextColor="White"
+                                           FontSize="23"
+                                           FontAttributes="Bold"/>
+
+                                    <Label x:Name="MensajeEstadoLabel"
+                                           Text="Completa las notas y presiona calcular."
+                                           TextColor="#C0CEE0"
+                                           FontSize="12"/>
+                                </VerticalStackLayout>
+                            </Border>
+                        </Grid>
+                    </VerticalStackLayout>
+                </Border>
+
+                <!-- HISTORIAL -->
+                <Border BackgroundColor="#112641"
+                        Stroke="#31537B"
+                        Padding="18"
+                        StrokeShape="RoundRectangle 18">
+
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label Text="Historial de Evaluaciones"
+                               TextColor="White"
+                               FontSize="19"
+                               FontAttributes="Bold"/>
+
+                        <Grid ColumnDefinitions="1.4*,1.2*,*,*,*,1.2*"
+                              ColumnSpacing="8"
+                              Padding="10"
+                              BackgroundColor="#1E3B60">
+
+                            <Label Text="Estudiante"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="1"
+                                   Text="Fecha"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="2"
+                                   Text="Parcial 1"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="3"
+                                   Text="Parcial 2"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="4"
+                                   Text="Final"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+
+                            <Label Grid.Column="5"
+                                   Text="Estado"
+                                   TextColor="White"
+                                   FontAttributes="Bold"/>
+                        </Grid>
+
+                        <VerticalStackLayout x:Name="HistorialContenedor"
+                                             Spacing="6">
+
+                            <Label x:Name="HistorialVacioLabel"
+                                   Text="No hay evaluaciones registradas."
+                                   TextColor="#A0B4D1"
+                                   HorizontalTextAlignment="Center"
+                                   Padding="12"/>
+                        </VerticalStackLayout>
+                    </VerticalStackLayout>
+                </Border>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>
